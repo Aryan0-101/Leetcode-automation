@@ -7,8 +7,9 @@ No servers to maintain — it uses GitHub Actions' built-in cron scheduler!
 ## Features
 
 - **Automated Fetching**: Retrieves the daily LeetCode challenge using their GraphQL API.
-- **AI Solution Generation**: Leverages OpenAI's API (can be used with third-party LLM providers) to generate efficient, well-documented Python solutions with time/space complexities.
-- **Email Delivery**: Uses standard SMTP to email you the daily problem and the AI's generated solution.
+- **AI Solution Generation**: Leverages OpenAI's API (can be used with third-party LLM providers) to generate efficient, well-documented Python solutions.
+- **Auto-Submit to LeetCode**: Automatically submits the AI-generated code directly to your LeetCode account.
+- **Email Delivery**: Uses standard SMTP to email you the daily problem, the AI's generated solution, and whether it was *Accepted* or *Failed*.
 - **Serverless**: Entirely scheduled and run through GitHub Actions.
 
 ## Setup Instructions
@@ -28,6 +29,8 @@ You need to add the following secrets:
 | `EMAIL_SENDER` | The Gmail address sending the emails. |
 | `EMAIL_APP_PASSWORD` | A 16-character Google App Password (do not use your regular password). |
 | `EMAIL_RECIPIENT` | The email address where you want to receive the solutions. |
+| `LEETCODE_SESSION` | Your LeetCode session cookie (grab from your browser). |
+| `LEETCODE_CSRF` | Your LeetCode `csrftoken` cookie (grab from your browser). |
 
 *(Optional)* You can also add `OPENAI_MODEL` as an **Actions Variable** (under **Variables** tab next to Secrets) to specify the model name (defaults to `gpt-4o`).
 
