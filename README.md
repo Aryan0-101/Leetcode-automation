@@ -1,6 +1,6 @@
 # Daily LeetCode Solver
 
-A fully automated tool that runs on GitHub Actions. Every day at 6:25 AM IST (12:55 AM UTC), it fetches the "Daily Coding Challenge" problem from LeetCode, asks an OpenAI-compatible LLM to write a clean, efficient Python solution for it, and emails the problem description and solution directly to your inbox.
+A fully automated tool that runs on GitHub Actions. Every day at 12:00 PM IST (06:55 AM UTC), it fetches the "Daily Coding Challenge" problem from LeetCode, asks an OpenAI-compatible LLM to write a clean, efficient Python solution for it, and emails the problem description and solution directly to your inbox.
 
 No servers to maintain — it uses GitHub Actions' built-in cron scheduler!
 
