@@ -25,6 +25,6 @@ jobs:
           EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
           EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
-          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
+          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSIONS }}
           LEETCODE_CSRF: ${{ secrets.LEETCODE_CSRF }}
         run: python solve_and_email.py
