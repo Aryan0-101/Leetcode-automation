@@ -13,7 +13,7 @@ from email.mime.text import MIMEText
 
 import requests
 from bs4 import BeautifulSoup
-import openai
+from google import genai
 
 
 # ---------- 1. Fetch today's LeetCode problem ----------
@@ -52,10 +52,7 @@ def get_daily_problem():
 # ---------- 2. Ask AI to solve it ----------
 
 def solve_problem(problem, previous_code=None, error_feedback=None):
-    client = openai.OpenAI(
-        api_key=os.environ["OPENAI_API_KEY"],
-        base_url=os.environ.get("OPENAI_BASE_URL")
-    )
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
     prompt = f"""Solve the following LeetCode problem in Python3.
 
@@ -86,13 +83,13 @@ Here was your previous code:
 Please analyze the error, fix the bugs in your code, and provide the corrected solution.
 """
 
-    model = os.environ.get("OPENAI_MODEL", "gpt-4o")
+    model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 
-    response = client.chat.completions.create(
+    response = client.models.generate_content(
         model=model,
-        messages=[{"role": "user", "content": prompt}],
+        contents=prompt,
     )
-    return response.choices[0].message.content
+    return response.text
 
 def extract_code(solution_text):
     match = re.search(r'```python\n(.*?)\n```', solution_text, re.DOTALL)

@@ -1,13 +1,13 @@
 # Daily LeetCode Solver
 
-A fully automated tool that runs on GitHub Actions. Every day at 6:25 AM IST (12:55 AM UTC), it fetches the "Daily Coding Challenge" problem from LeetCode, asks an OpenAI-compatible LLM to write a clean, efficient Python solution for it, and emails the problem description and solution directly to your inbox.
+A fully automated tool that runs on GitHub Actions. Every day at 6:25 AM IST (12:55 AM UTC), it fetches the "Daily Coding Challenge" problem from LeetCode, asks Google's Gemini AI to write a clean, efficient Python solution for it, and emails the problem description and solution directly to your inbox.
 
 No servers to maintain — it uses GitHub Actions' built-in cron scheduler!
 
 ## Features
 
 - **Automated Fetching**: Retrieves the daily LeetCode challenge using their GraphQL API.
-- **AI Solution Generation**: Leverages OpenAI's API (can be used with third-party LLM providers) to generate efficient, well-documented Python solutions.
+- **AI Solution Generation**: Leverages Google's Gemini API to generate efficient, well-documented Python solutions.
 - **Auto-Submit to LeetCode**: Automatically submits the AI-generated code directly to your LeetCode account.
 - **Email Delivery**: Uses standard SMTP to email you the daily problem, the AI's generated solution, and whether it was *Accepted* or *Failed*.
 - **Serverless**: Entirely scheduled and run through GitHub Actions.
@@ -24,15 +24,14 @@ You need to add the following secrets:
 
 | Secret Name | Description |
 |---|---|
-| `OPENAI_API_KEY` | Your API key. |
-| `OPENAI_BASE_URL` | *(Optional)* The base URL if you're using a third-party OpenAI-compatible provider. |
+| `GEMINI_API_KEY` | Your Gemini API key from Google AI Studio. |
 | `EMAIL_SENDER` | The Gmail address sending the emails. |
 | `EMAIL_APP_PASSWORD` | A 16-character Google App Password (do not use your regular password). |
 | `EMAIL_RECIPIENT` | The email address where you want to receive the solutions. |
 | `LEETCODE_SESSION` | Your LeetCode session cookie (grab from your browser). |
 | `LEETCODE_CSRF` | Your LeetCode `csrftoken` cookie (grab from your browser). |
 
-*(Optional)* You can also add `OPENAI_MODEL` as an **Actions Variable** (under **Variables** tab next to Secrets) to specify the model name (defaults to `gpt-4o`).
+*(Optional)* You can also add `GEMINI_MODEL` as an **Actions Variable** (under **Variables** tab next to Secrets) to specify the model name (defaults to `gemini-2.5-flash`).
 
 ### 3. How to get a Gmail App Password
 1. Go to [Google Account Security](https://myaccount.google.com/security).
