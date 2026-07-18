@@ -83,7 +83,7 @@ Here was your previous code:
 Please analyze the error, fix the bugs in your code, and provide the corrected solution.
 """
 
-    model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+    model = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
 
     response = client.models.generate_content(
         model=model,
