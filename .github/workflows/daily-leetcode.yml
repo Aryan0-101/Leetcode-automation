@@ -2,7 +2,7 @@ name: Daily LeetCode Solver
 
 on:
   schedule:
-    - cron: '55 12 * * *'   # 12:55 AM UTC = 6:25 AM IST
+    - cron: '30 03 * * *'   # 03:30 AM UTC = 9:00 AM IST
   workflow_dispatch:         # allows manual "Run workflow" trigger for testing
 
 jobs:
